@@ -12,6 +12,11 @@ def divide(x, y):
         return "Error! Division by zero."
     return x / y
 
+def percentage(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    return (x / y) * 100
+
 def calculator():
     print("Simple Calculator")
     print("Select operation:")
@@ -19,11 +24,12 @@ def calculator():
     print("2. Subtract")
     print("3. Multiply")
     print("4. Divide")
+    print("5. Percentage")
 
     while True:
-        choice = input("Enter choice (1/2/3/4): ")
+        choice = input("Enter choice (1/2/3/4/5): ")
 
-        if choice in ('1', '2', '3', '4'):
+        if choice in ('1', '2', '3', '4', '5'):
             try:
                 num1 = float(input("Enter first number: "))
                 num2 = float(input("Enter second number: "))
@@ -39,8 +45,10 @@ def calculator():
                 print(f"Result: {multiply(num1, num2)}")
             elif choice == '4':
                 print(f"Result: {divide(num1, num2)}")
+            elif choice == '5':
+                print(f"Result: {percentage(num1, num2)}")
         else:
-            print("Invalid choice. Please select 1, 2, 3, or 4.")
+            print("Invalid choice. Please select 1, 2, 3, 4, or 5.")
 
         next_calc = input("Do you want to perform another calculation? (yes/no): ")
         if next_calc.lower() != 'yes':
